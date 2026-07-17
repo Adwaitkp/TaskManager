@@ -8,7 +8,15 @@ const taskRoutes = require('./routes/tasks');
 
 const app = express();
 
-app.use(cors());
+app.use(
+  cors({
+    origin: [
+      "http://localhost:5173",
+      "https://taskmanager-u8u8.onrender.com",
+    ],
+    credentials: true,
+  })
+);
 app.use(express.json());
 
 app.use('/api/auth', authRoutes);
